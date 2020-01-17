@@ -1,12 +1,57 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <AlertMessage>
+                <AlertTemplate>
+                    <span>
+                        Hello World
+                    </span>
+                </AlertTemplate>
+            </AlertMessage>
+        </div>
+    </div>
 
-Welcome to your new app.
-<AlertMessage>
-    <AlertTemplate>
-            <span>
-                Hello World
-            </span>
-    </AlertTemplate>
-</AlertMessage>
+    <div class="row">
+        <div class="col-12">
+            <h3>Count of Alter : @ListAlert.Count()</h3>
+            <hr />
+            <button class="btn btn-danger" @onclick="Increment">Increment</button>
+            <hr />
+
+           <AlertMessages Items="ListAlert" Context="message" OnDelete="DeleteAlert">
+               <ItemsTemplate>
+                    <span>
+                        This is an alert @message
+                    </span>
+               </ItemsTemplate>
+           </AlertMessages>
+        </div>
+    </div>
+</div>
+
+@code{
+
+    private List<int> ListAlert { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        ListAlert = new List<int>();
+
+    }
+
+    private void Increment()
+    {
+        ListAlert.Add(ListAlert.Count + 1);
+    }
+
+    private void DeleteAlert(object item)
+    {
+        ListAlert.Remove((int)item);
+    }
+}
+
+

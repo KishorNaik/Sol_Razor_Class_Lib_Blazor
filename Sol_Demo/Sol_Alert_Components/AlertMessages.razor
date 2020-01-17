@@ -1,0 +1,37 @@
+﻿@typeparam TItem
+
+@foreach(var item in Items)
+{
+    <AlertMessage>
+        <AlertTemplate>
+            @ItemsTemplate(item)
+
+            @if (OnDelete.HasDelegate)
+            {
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" @onclick="@(()=> HandleDelete(item))">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            }
+
+        </AlertTemplate>
+    </AlertMessage>
+}
+
+
+@code {
+
+    [Parameter]
+    public RenderFragment<TItem> ItemsTemplate { get; set; }
+
+    [Parameter]
+    public IReadOnlyList<TItem> Items { get; set; }
+
+    [Parameter]
+    public EventCallback<Object> OnDelete { get; set; }
+
+    private void HandleDelete(TItem item)
+    {
+        OnDelete.InvokeAsync(item);
+    }
+
+}
