@@ -1,0 +1,13 @@
+﻿<div class="alert alert-danger">
+    <div class="my-component">
+        @AlertTemplate
+    </div>
+    
+</div>
+
+@code{
+
+    [Parameter]
+    public RenderFragment AlertTemplate { get; set; }
+
+}

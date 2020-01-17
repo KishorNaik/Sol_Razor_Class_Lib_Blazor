@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sol_Blazor", "Sol_Blazor\Sol_Blazor.csproj", "{7A4B93FD-68CA-4DC9-8FF1-36C690154629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sol_Alert_Components", "Sol_Alert_Components\Sol_Alert_Components.csproj", "{A70525D3-B121-423B-A456-50A20EEB866F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A4B93FD-68CA-4DC9-8FF1-36C690154629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A4B93FD-68CA-4DC9-8FF1-36C690154629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A4B93FD-68CA-4DC9-8FF1-36C690154629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A4B93FD-68CA-4DC9-8FF1-36C690154629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A70525D3-B121-423B-A456-50A20EEB866F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A70525D3-B121-423B-A456-50A20EEB866F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A70525D3-B121-423B-A456-50A20EEB866F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A70525D3-B121-423B-A456-50A20EEB866F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D2843B45-3682-4094-9FB6-5063D142886B}
+	EndGlobalSection
+EndGlobal
