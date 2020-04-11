@@ -1,0 +1,89 @@
+﻿
+
+**Change Layout in Different class library.
+Step 1:
+Create a Razor Class Library in solution, give suitable name of solution, in my case CustomerModule
+
+Step 2:
+Create a shared folder, and create a Layoutpage
+CustomerLayuout.razor file
+@inherits LayoutComponentBase
+
+@*<div class="sidebar">
+    <NavMenu />
+</div>*@
+
+<div class="main">
+    <div class="top-row px-4 bg-dark">
+        <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+    </div>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>
+
+
+
+Step 3:
+Create a _Imports.razor and following assemblies.
+@using System.Net.Http
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+
+@using CustomerModule
+@using CustomerModule.Shared
+
+Step 4:
+Create a Components folder, and add following component file and code.
+CustomerComponent.razor
+
+@layout CustomerLayout
+@page "/customerview"
+
+<h3>CustomerComponent</h3>
+
+<a class="btn btn-danger" href="/">Submit</a>
+
+@code {
+
+}
+
+Step 5:
+Add a reference from the app to the created library
+
+Step 6:
+Add following code inside the _Import.razor file
+@using CustomerModule.Components
+
+Step 7:
+Add follwing code inside the App.Razor
+<Router AppAssembly="@typeof(Program).Assembly" 
+            AdditionalAssemblies="new[] { typeof(CustomerComponent).Assembly }"
+        >
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p>Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+
+Add attribute with config
+AdditionalAssemblies="new[] { typeof(CustomerComponent).Assembly }"
+
+Step 8:
+Inside the Index.razor components to call customer component using anchor tag
+
+<a class="btn btn-danger" href="/customerview">Customer Page : Razor Class Library</a>
+
+
+
+
+
